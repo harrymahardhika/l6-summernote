@@ -11,5 +11,12 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix
+    .copy('./node_modules/summernote/src/styles/summernote-icons.css', 'resources/css/summernote-icons.css')
+    .copy('./node_modules/summernote/src/styles/font', 'public/fonts')
+
+    .js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
+    .options({
+        processCssUrls: false
+    });
